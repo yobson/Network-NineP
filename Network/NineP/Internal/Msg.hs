@@ -58,7 +58,7 @@ checkPerms' have want = do
 		3 -> checkExec
 
 getQidTyp :: Stat -> Word8
-getQidTyp s = fromIntegral $ shift (st_mode s) 24
+getQidTyp s = fromIntegral $ shiftR (st_mode s) 24
 
 makeQid :: (Monad m, EmbedIO m) => Word16 -> NineFile m -> Nine m Qid
 makeQid t x = do
